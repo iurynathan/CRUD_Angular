@@ -1,0 +1,13 @@
+<mat-dialog-content class="mat-typography">
+  Deseja Deletar?
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+    color="primary"
+    (click)="deleteUser()"
+  >Deletar</button>
+  <button mat-button mat-dialog-close>Cancelar</button>
+</mat-dialog-actions>

@@ -1,0 +1,35 @@
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.container {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container > div {
+  width: 250px;
+  margin: 0 1rem 2rem 1rem;
+  text-align: center;
+  border: 2px rgb(221, 221, 221) outset;
+}
+
+.user img {
+  box-shadow: 11px 9px 7px rgba(160, 160, 160, 0.77);
+}
+
+.edit {
+  margin-right: 5px;
+}
+
+.edit > i {
+  color: #D9CD26;
+}
+
+.delete > i {
+  color: #E35E6B;
+}

@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title>Novo Usuário</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Name" [(ngModel)]="user.name" name="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Job" [(ngModel)]="user.job" name="job">
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="userRegister()" color="primary">
+    Cadastrar
+  </button>
+  <button mat-raised-button (click)="cancelUserRegister()">
+    Cancelar
+  </button>
+</mat-card>

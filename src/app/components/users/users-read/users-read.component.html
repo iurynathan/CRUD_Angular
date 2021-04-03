@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="user" *ngFor="let user of users">
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+    <p>{{ user.email }}</p>
+    <img src="{{ user.avatar }}" alt="foto do usuário" />
+    <p></p>
+    <a routerLink="/users/update/{{ user.id }}" class="edit">
+      <i class="material-icons edit">
+        edit
+      </i>
+    </a>
+    <button mat-icon-button (click)="openDialog(ref.id)">
+      <a class="delete">
+        <i id="{{ user.id }}" #ref class="material-icons delete">
+          delete
+        </i>
+      </a>
+    </button>
+  </div>
+</div>
