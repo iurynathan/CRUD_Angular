@@ -2,17 +2,17 @@
   <div class="example-container">
     <mat-form-field appearance="fill" class="input-field">
       <mat-label>Enter your email</mat-label>
-      <input matInput placeholder="email@example.com" required>
+      <input matInput placeholder="email@example.com" [(ngModel)]="login.email" name="email" required>
       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill" class="input-field">
       <mat-label>Enter your password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
+      <input matInput [(ngModel)]="login.password" name="password" [type]="hide ? 'password' : 'text'">
       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
     </mat-form-field>
-    <button mat-raised-button color="primary">
+    <button mat-raised-button (click)="authenticateUser()" color="primary">
       Login
     </button>
     <button mat-raised-button>

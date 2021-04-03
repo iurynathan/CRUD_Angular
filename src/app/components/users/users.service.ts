@@ -9,7 +9,8 @@ import { Users } from './users.model';
 })
 export class UsersService {
 
-  baseUrl = "https://reqres.in/api/users"
+  baseUrl = "https://reqres.in/api/users";
+  loginUrl = "https://reqres.in/api/login";
 
   constructor(
     private snackBar: MatSnackBar,
@@ -31,6 +32,7 @@ export class UsersService {
   }
 
   create(user: Users): Observable<Users> {
+    console.log(user)
     return this.http.post<Users>(this.baseUrl, user);
   }
 
@@ -51,6 +53,10 @@ export class UsersService {
 
   registerId(valueId:string) {
     this.value = valueId;
-    return this.value
+    return this.value;
+  }
+
+  login(login: Users): Observable<Users> {
+    return this.http.post<Users>(this.loginUrl, login);
   }
 }

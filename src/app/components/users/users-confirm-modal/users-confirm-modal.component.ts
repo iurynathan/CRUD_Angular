@@ -26,8 +26,8 @@ export class UsersConfirmModalComponent implements OnInit {
       this.userService.showMessage('Usuário excluído com sucesso')
     },
     erro => {
-      if(erro.status === 404) {
-        console.log('Usuário não encontrado')
+      if (erro.status === 404) {
+        this.userService.showMessage('Usuário não encontrado')
       }
     }
     )

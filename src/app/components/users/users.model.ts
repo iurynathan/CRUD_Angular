@@ -1,4 +1,7 @@
 export interface Users {
+  token?: string
+  email?: string
+  password?: string
   id?: string
   name?: string
   job?: string

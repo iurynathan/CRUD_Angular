@@ -32,6 +32,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { UsersUpdateComponent } from './components/users/users-update/users-update.component';
 import { UsersConfirmModalComponent } from './components/users/users-confirm-modal/users-confirm-modal.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './guards/auth-guard';
 
 
 @NgModule({
@@ -71,7 +73,7 @@ import { LoginComponent } from './components/login/login.component';
     MatDialogModule,
   ],
   entryComponents: [UsersConfirmModalComponent],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
