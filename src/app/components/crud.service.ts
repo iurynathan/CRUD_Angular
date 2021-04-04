@@ -30,8 +30,9 @@ export class CrudService {
     });
   }
 
-  readUsers(): Observable<Users> {
-    return this.http.get<Users>(this.baseUrl);
+  readUsers(page: string): Observable<Users> {
+    const url = `${this.baseUrl}?page=${page}`
+    return this.http.get<Users>(url);
   }
 
   create(user: Users): Observable<Users> {

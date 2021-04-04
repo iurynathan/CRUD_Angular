@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="user" *ngFor="let user of users">
+  <div class="user" *ngFor="let user of users.data">
     <p>{{ user.first_name }} {{ user.last_name }}</p>
     <p>{{ user.email }}</p>
     <img src="{{ user.avatar }}" alt="foto do usuário" />
@@ -18,3 +18,6 @@
     </button>
   </div>
 </div>
+<button>
+  Próxima página
+</button>

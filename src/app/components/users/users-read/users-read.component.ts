@@ -11,8 +11,9 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class UsersReadComponent implements OnInit {
 
-  users: Users["data"] | undefined;
-  valor: string | undefined;
+  users!: Users;
+  valor!: string;
+  page = 1
 
   constructor(
     private crudService: CrudService,
@@ -20,8 +21,8 @@ export class UsersReadComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.crudService.readUsers().subscribe((users) => {
-      this.users = users["data"];
+    this.crudService.readUsers('1').subscribe((users) => {
+      this.users = users;
     })
   }
 

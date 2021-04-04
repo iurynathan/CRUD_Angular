@@ -19,7 +19,6 @@ export class AuthService {
     if (this.localStorageService.get('token')) {
       this.authenticateUser = true;
       this.showMenuEmitter.emit(true);
-      console.log(this.authenticateUser);
     } else {
       this.authenticateUser = false;
       this.showMenuEmitter.emit(false);

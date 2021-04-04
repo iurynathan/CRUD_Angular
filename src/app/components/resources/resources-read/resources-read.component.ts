@@ -15,7 +15,6 @@ export class ResourcesReadComponent implements OnInit {
 
   constructor(
     private crudService: CrudService,
-    private dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {

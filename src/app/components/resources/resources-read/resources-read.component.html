@@ -2,7 +2,7 @@
   <div class="resource" *ngFor="let resource of resources">
     <p>Nome: {{ resource.name }}</p>
     <p>Ano: {{ resource.year }}</p>
-    <p>Cor: {{ resource.color }}</p>
+    <div class="resource-color" [ngStyle]="{'background-color': resource.color}"></div><p>Cor: {{ resource.color }}</p>
     <p>Pantone Color: {{ resource.pantone_value }}</p>
   </div>
 </div>
