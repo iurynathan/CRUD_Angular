@@ -2,19 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
-import { Users } from './users.model';
+import { Users } from './users/users.model';
+import { Resources } from './resources/resources.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class CrudService {
 
   baseUrl = "https://reqres.in/api/users";
   loginUrl = "https://reqres.in/api/login";
+  registerUrl = "https://reqres.in/api/register";
+  resourcesBaseUrl = "https://reqres.in/api/unknown"
 
   constructor(
     private snackBar: MatSnackBar,
-    private http: HttpClient
+    private http: HttpClient,
     ) { }
 
     public value!: string;
@@ -58,5 +61,13 @@ export class UsersService {
 
   login(login: Users): Observable<Users> {
     return this.http.post<Users>(this.loginUrl, login);
+  }
+
+  registerUser(register: Users) {
+    return this.http.post<Users>(this.registerUrl, register);
+  }
+
+  readResources(): Observable<Resources> {
+    return this.http.get<Resources>(this.resourcesBaseUrl);
   }
 }

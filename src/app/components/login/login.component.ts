@@ -1,6 +1,8 @@
+import { RegisterComponent } from './../register/register.component';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
-import { UsersService } from './../users/users.service';
+import { CrudService } from '../crud.service';
 import { LocalStorageService } from './../../local-storage.service';
 import { Users } from './../users/users.model';
 import { Component, OnInit } from '@angular/core';
@@ -23,9 +25,10 @@ export class LoginComponent implements OnInit {
   hide = true;
 
   constructor(
-    private userService: UsersService,
+    private crudService: CrudService,
     private localStorageService: LocalStorageService,
     private router: Router,
+    public dialog: MatDialog,
     private authService: AuthService,
   ) { }
 
@@ -41,17 +44,21 @@ export class LoginComponent implements OnInit {
   }
 
   authenticateUser(): void {
-    this.userService.login(this.login).subscribe((data) => {
+    this.crudService.login(this.login).subscribe((data) => {
       this.localStorageService.set('token', data.token);
-      this.userService.showMessage(`Usuário ${this.login.email} logado com sucesso`);
+      this.crudService.showMessage(`Usuário ${this.login.email} logado com sucesso`);
       this.authService.authenticate()
       this.router.navigate(['/users'])
     },
     erro => {
       if (erro.status === 400) {
-        this.userService.showMessage('Email ou senha invalida')
+        this.crudService.showMessage('Email ou senha invalida')
       }
     })
+  }
+
+  openDialog() {
+    return this.dialog.open(RegisterComponent);
   }
 
 }

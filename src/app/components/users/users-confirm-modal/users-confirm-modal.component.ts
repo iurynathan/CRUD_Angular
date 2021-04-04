@@ -1,6 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
-import { Users } from './../users.model';
-import { UsersService } from './../users.service';
+import { CrudService } from '../../crud.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,24 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersConfirmModalComponent implements OnInit {
 
-  users: Users["data"] | undefined;
-
   constructor(
-    private userService: UsersService,
+    private crudService: CrudService,
   ) { }
 
   ngOnInit(): void {
   }
 
   deleteUser(): void {
-    const id = this.userService.value
-    console.log(id)
-    this.userService.delete(id).subscribe(() => {
-      this.userService.showMessage('Usuário excluído com sucesso')
+    const id = this.crudService.value
+    this.crudService.delete(id).subscribe(() => {
+      this.crudService.showMessage('Usuário excluído com sucesso')
     },
     erro => {
       if (erro.status === 404) {
-        this.userService.showMessage('Usuário não encontrado')
+        this.crudService.showMessage('Usuário não encontrado')
       }
     }
     )

@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { UsersService } from './../users.service';
+import { CrudService } from '../../crud.service';
 import { Component, OnInit } from '@angular/core';
 import { Users } from '../users.model';
 
@@ -16,7 +16,7 @@ export class UsersCreateComponent implements OnInit {
   }
 
   constructor(
-    private userService: UsersService,
+    private crudService: CrudService,
     private router: Router,
     ) { }
 
@@ -24,8 +24,8 @@ export class UsersCreateComponent implements OnInit {
   }
 
   userRegister(): void {
-    this.userService.create(this.user).subscribe((data) => {
-      this.userService.showMessage(`Usuário ${data.name} Cadastrado com Sucesso`);
+    this.crudService.create(this.user).subscribe((data) => {
+      this.crudService.showMessage(`Usuário ${data.name} Cadastrado com Sucesso`);
       this.router.navigate(['/users'])
     })
 

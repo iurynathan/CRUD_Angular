@@ -1,6 +1,6 @@
 import { Users } from './../users.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsersService } from './../users.service';
+import { CrudService } from '../../crud.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,21 +16,21 @@ export class UsersUpdateComponent implements OnInit {
   }
 
   constructor(
-    private userService: UsersService,
+    private crudService: CrudService,
     private router: Router,
     private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.userService.readById(id).subscribe(user => {
+    this.crudService.readById(id).subscribe(user => {
       this.user = user;
     });
   }
 
   updateUser(): void {
-    this.userService.update(this.user).subscribe((data) => {
-      this.userService.showMessage(`Usuário ${data.name} editado com sucesso ${data.updatedAt}`)
+    this.crudService.update(this.user).subscribe((data) => {
+      this.crudService.showMessage(`Usuário ${data.name} editado com sucesso ${data.updatedAt}`)
     })
   }
 

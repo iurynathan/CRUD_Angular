@@ -34,6 +34,8 @@ import { UsersConfirmModalComponent } from './components/users/users-confirm-mod
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './guards/auth-guard';
+import { RegisterComponent } from './components/register/register.component';
+import { ResourcesReadComponent } from './components/resources/resources-read/resources-read.component';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { AuthGuard } from './guards/auth-guard';
     UsersUpdateComponent,
     UsersConfirmModalComponent,
     LoginComponent,
+    RegisterComponent,
+    ResourcesReadComponent,
   ],
   imports: [
     AppRoutingModule,
