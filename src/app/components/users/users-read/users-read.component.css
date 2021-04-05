@@ -22,16 +22,8 @@ img {
   box-shadow: 11px 9px 7px rgba(160, 160, 160, 0.77);
 }
 
-.edit {
-  margin-right: 5px;
-}
-
-.edit > i {
-  color: #D9CD26;
-}
-
-.delete > i {
-  color: #E35E6B;
+.details {
+  margin-bottom: 10px;
 }
 
 .page-change {
