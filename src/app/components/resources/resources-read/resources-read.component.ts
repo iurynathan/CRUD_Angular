@@ -1,3 +1,4 @@
+import { ResourceDetailsComponent } from './../resource-details/resource-details.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CrudService } from './../../crud.service';
 import { Resources } from './../resources.model';
@@ -15,6 +16,7 @@ export class ResourcesReadComponent implements OnInit {
 
   constructor(
     private crudService: CrudService,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +25,12 @@ export class ResourcesReadComponent implements OnInit {
     })
   }
 
+  openDialogDetails(value:string) {
+    const detailsRef = this.dialog.open(ResourceDetailsComponent);
+    this.valor = value;
+    this.crudService.registerId(this.valor)
 
+    return detailsRef;
+  }
 
 }

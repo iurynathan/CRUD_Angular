@@ -1,4 +1,4 @@
-import { UsersConfirmModalComponent } from './../users-confirm-modal/users-confirm-modal.component';
+import { UserDetailsComponent } from './../user-details/user-details.component';
 import { Component, OnInit } from '@angular/core';
 import { Users } from '../users.model';
 import { CrudService } from '../../crud.service';
@@ -13,7 +13,7 @@ export class UsersReadComponent implements OnInit {
 
   users!: Users;
   valor!: string;
-  page = 1
+  disabled: boolean = false;
 
   constructor(
     private crudService: CrudService,
@@ -26,14 +26,18 @@ export class UsersReadComponent implements OnInit {
     })
   }
 
-  openDialog(value:string) {
-    const dialogRef = this.dialog.open(UsersConfirmModalComponent);
+  changePage(value:string) {
+    this.crudService.readUsers(value).subscribe((users) => {
+      this.users = users;
+    })
+  }
+
+  openDialogDetails(value:string) {
+    const detailsRef = this.dialog.open(UserDetailsComponent);
     this.valor = value;
     this.crudService.registerId(this.valor)
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    return detailsRef;
   }
 
 }

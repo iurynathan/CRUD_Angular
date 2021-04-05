@@ -19,7 +19,6 @@ import { HeaderComponent } from './components/templates/header/header.component'
 import { FooterComponent } from './components/templates/footer/footer.component';
 import { NavComponent } from './components/templates/nav/nav.component';
 import { UsersCreateComponent } from './components/users/users-create/users-create.component';
-import { ResourcesCreateComponent } from './components/resources/resources-create/resources-create.component';
 import { HomeComponent } from './views/home/home.component';
 import { UsersComponent } from './views/users/users.component';
 import { ResourcesComponent } from './views/resources/resources.component';
@@ -36,6 +35,9 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './guards/auth-guard';
 import { RegisterComponent } from './components/register/register.component';
 import { ResourcesReadComponent } from './components/resources/resources-read/resources-read.component';
+import { UserDetailsComponent } from './components/users/user-details/user-details.component';
+import { ResourceDetailsComponent } from './components/resources/resource-details/resource-details.component';
+import { DelayedUsersComponent } from './views/delayed-users/delayed-users.component';
 
 
 @NgModule({
@@ -48,13 +50,15 @@ import { ResourcesReadComponent } from './components/resources/resources-read/re
     UsersComponent,
     ResourcesComponent,
     UsersCreateComponent,
-    ResourcesCreateComponent,
     UsersReadComponent,
     UsersUpdateComponent,
     UsersConfirmModalComponent,
     LoginComponent,
     RegisterComponent,
     ResourcesReadComponent,
+    UserDetailsComponent,
+    ResourceDetailsComponent,
+    DelayedUsersComponent,
   ],
   imports: [
     AppRoutingModule,

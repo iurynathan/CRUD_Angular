@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="user">
+    <p>{{ first_name }} {{ last_name }}</p>
+    <p>{{ email }}</p>
+    <img src="{{ avatar }}" alt="foto do usuário" />
+    <p></p>
+    <button mat-dialog-close routerLink="/users/update/{{ id }}" class="edit">
+      <i class="material-icons edit">
+        edit
+      </i>
+    </button>
+    <button mat-icon-button (click)="openDialog(ref.id)">
+      <a class="delete">
+        <i id="{{ id }}" #ref class="material-icons delete">
+          delete
+        </i>
+      </a>
+    </button>
+  </div>
+</div>

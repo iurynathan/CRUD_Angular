@@ -4,20 +4,21 @@
     <p>{{ user.email }}</p>
     <img src="{{ user.avatar }}" alt="foto do usuário" />
     <p></p>
-    <a routerLink="/users/update/{{ user.id }}" class="edit">
-      <i class="material-icons edit">
-        edit
-      </i>
-    </a>
-    <button mat-icon-button (click)="openDialog(ref.id)">
-      <a class="delete">
-        <i id="{{ user.id }}" #ref class="material-icons delete">
-          delete
-        </i>
-      </a>
+  <br />
+    <button (click)="openDialogDetails(ref.id)" id="{{ user.id }}" #ref>
+      Ver detalhes
     </button>
   </div>
 </div>
-<button>
-  Próxima página
-</button>
+<div class="page-change">
+  <button mat-stroked-button (click)="changePage(ref1.id)">
+    <i id="1" #ref1>
+      1
+    </i>
+  </button>
+  <button mat-stroked-button (click)="changePage(ref2.id)">
+    <i id="2" #ref2>
+      2
+    </i>
+  </button>
+</div>

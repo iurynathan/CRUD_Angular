@@ -1,0 +1,10 @@
+<h1 *ngIf="loading">Loading...</h1>
+<div class="container">
+  <div class="user" *ngFor="let user of users.data">
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+    <p>{{ user.email }}</p>
+    <img src="{{ user.avatar }}" alt="foto do usuário" />
+    <p></p>
+  </div>
+</div>
+

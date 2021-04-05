@@ -4,5 +4,9 @@
     <p>Ano: {{ resource.year }}</p>
     <div class="resource-color" [ngStyle]="{'background-color': resource.color}"></div><p>Cor: {{ resource.color }}</p>
     <p>Pantone Color: {{ resource.pantone_value }}</p>
+    <br />
+    <button (click)="openDialogDetails(ref.id)" id="{{ resource.id }}" #ref>
+      Ver detalhes
+    </button>
   </div>
 </div>

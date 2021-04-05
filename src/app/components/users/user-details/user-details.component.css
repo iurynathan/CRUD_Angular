@@ -1,0 +1,16 @@
+img {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.container {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.user img {
+  box-shadow: 11px 9px 7px rgba(160, 160, 160, 0.77);
+}

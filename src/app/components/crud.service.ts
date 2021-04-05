@@ -14,6 +14,7 @@ export class CrudService {
   loginUrl = "https://reqres.in/api/login";
   registerUrl = "https://reqres.in/api/register";
   resourcesBaseUrl = "https://reqres.in/api/unknown"
+  delayedUrl = "https://reqres.in/api/users?delay=3"
 
   constructor(
     private snackBar: MatSnackBar,
@@ -70,5 +71,14 @@ export class CrudService {
 
   readResources(): Observable<Resources> {
     return this.http.get<Resources>(this.resourcesBaseUrl);
+  }
+
+  readResourcesById(id: string | null): Observable<Users> {
+    const url = `${this.resourcesBaseUrl}/${id}`;
+    return this.http.get<Users>(url);
+  }
+
+  readUsersDelayed(): Observable<Users> {
+    return this.http.get<Users>(this.delayedUrl);
   }
 }
