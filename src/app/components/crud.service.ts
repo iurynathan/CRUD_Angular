@@ -21,7 +21,7 @@ export class CrudService {
     private http: HttpClient,
     ) { }
 
-    public value!: string;
+    value!: string;
 
   showMessage(message: string): void {
     this.snackBar.open(message, 'X', {

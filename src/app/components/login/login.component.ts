@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     private crudService: CrudService,
     private localStorageService: LocalStorageService,
     private router: Router,
-    public dialog: MatDialog,
+    private dialog: MatDialog,
     private authService: AuthService,
   ) { }
 

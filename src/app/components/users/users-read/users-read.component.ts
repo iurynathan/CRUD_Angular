@@ -17,7 +17,7 @@ export class UsersReadComponent implements OnInit {
 
   constructor(
     private crudService: CrudService,
-    public dialog: MatDialog,
+    private dialog: MatDialog,
     ) { }
 
   ngOnInit(): void {
